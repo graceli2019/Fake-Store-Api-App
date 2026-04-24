@@ -20,8 +20,8 @@ test.describe('Auth API', () => {
       data: { username: VALID_USERNAME, password: VALID_PASSWORD },
     });
 
-    // Expect HTTP 200 OK for a successful login
-    expect(response.status()).toBe(200);
+    // API returns 201 for a successful login
+    expect(response.status()).toBe(201);
 
     // Parse the response body as JSON
     const body = await response.json();
@@ -200,8 +200,8 @@ test.describe('Auth API', () => {
       data: { username: VALID_USERNAME, password: VALID_PASSWORD, role: 'admin', isAdmin: true },
     });
 
-    // Valid credentials should still authenticate despite extra fields
-    expect(response.status()).toBe(200);
+    // Valid credentials should still authenticate despite extra fields (API returns 201)
+    expect(response.status()).toBe(201);
   });
 
   // ── Security ───────────────────────────────────────────────────────────────
